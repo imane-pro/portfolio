@@ -5,7 +5,7 @@ const designProjects = [
   {
     id: 1,
     title: "Design Project 1",
-    image: "/matcha.jpg", // Changed "Image" to "image" for consistency
+    image: "/matcha.jpg",
   },
   {
     id: 2,
@@ -37,54 +37,78 @@ const designProjects = [
 const uiuxProjects = [
   {
     id: 1,
-    title: "Food App Interface",
+    title: "Food App Interface 1",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    video: "/foodApp.mp4",
+    image: "/1.png",
   },
   {
     id: 2,
-    title: "Music App Interface",
+    title: "Food App Interface 2",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    video: "/musicApp.mp4",
+    image: "/2.png",
   },
   {
     id: 3,
+    title: "Food App Interface 3",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    image: "/3.png",
+  },
+  {
+    id: 4,
+    title: "Food App Interface 4",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    image: "/4.png",
+  },
+  {
+    id: 5,
     title: "Book App Interface",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     image: "/booksApp.png",
   },
   {
-    id: 4,
-    title: "WhatsApp Interface", // Fixed the casing for WhatsApp
+    id: 6,
+    title: "WhatsApp Interface",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     image: "/whatsAppp.png",
   },
   {
-    id: 5,
+    id: 7,
     title: "Login Page Interface",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     image: "/loginPage.png",
+  },
+  {
+    id: 8,
+    title: "Music App Interface 1",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    image: "/m1.png",
+  },
+  {
+    id: 9,
+    title: "Music App Interface 2",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    image: "/m2.png",
   },
 ];
 
 const webDevProjects = [
   {
     id: 1,
-    title: "Tic Tac Toe Game", // Fixed the spacing
-    desc: "Description for web project 1.",
-    video: "/tictac.mp4",
+    title: "Tic Tac Toe Game",
+    desc: "React js project.",
+    image: "/tictac.png",
   },
   {
     id: 2,
-    title: "Pomodoro Timer and Todo List", // Fixed the spacing
-    desc: "Description for web project 2.",
-    video: "/todoli.mp4",
+    title: "Pomodoro Timer and Todo List",
+    desc: "React js project.",
+    image: "/todo.png",
   },
   {
     id: 3,
     title: "Site Web de Pâtisserie",
-    desc: "Description for web project 3.", // Updated the description
-    video: "/donuts.mp4",
+    desc: "Laravel project.",
+    image: "/donut.png",
   },
 ];
 
@@ -102,11 +126,11 @@ const PortfolioPage = () => {
           {designProjects.map((project) => (
             <div key={project.id} className="relative">
               <Image
-                src={project.image} // Use lowercase "image"
+                src={project.image}
                 alt={project.title}
                 className="w-full h-auto rounded-lg"
-                width={500} // Specify width for optimization
-                height={300} // Specify height for optimization
+                width={500}
+                height={300}
               />
             </div>
           ))}
@@ -117,25 +141,9 @@ const PortfolioPage = () => {
       <div className="mt-12 mb-24 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         <h2 className="text-4xl font-bold text-center mb-12">UI/UX Projects</h2>
 
-        {/* Row pour les vidéos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-          {uiuxProjects.filter(project => project.video).map((project) => (
-            <div key={project.id} className="relative">
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <div className="relative w-full h-auto">
-                  <video src={project.video} controls className="w-full h-full object-cover" />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         {/* Row pour les images */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {uiuxProjects.filter(project => project.image).map((project) => (
+          {uiuxProjects.map((project) => (
             <div key={project.id} className="relative">
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <div className="relative w-full h-auto">
@@ -150,7 +158,7 @@ const PortfolioPage = () => {
         </div>
       </div>
 
-      {/* Section des vidéos de projets de développement web */}
+      {/* Section des projets de développement web */}
       <div className="mt-12 mb-24 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         <h2 className="text-4xl font-bold text-center mb-12">Web Development Projects</h2>
         
@@ -159,10 +167,11 @@ const PortfolioPage = () => {
             <div key={project.id} className="relative">
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <div className="relative w-full h-auto">
-                  <video src={project.video} controls className="w-full h-full object-cover" />
+                  <Image src={project.image} alt={project.title} className="w-full h-auto object-cover" width={500} height={300} />
                 </div>
                 <div className="p-4">
                   <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                  <p>{project.desc}</p>
                 </div>
               </div>
             </div>
